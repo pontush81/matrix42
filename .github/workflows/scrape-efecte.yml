@@ -1,0 +1,53 @@
+name: Scrape Efecte Community
+
+on:
+  # Manuell triggning via GitHub UI
+  workflow_dispatch:
+
+  # Schemalagd körning varje natt kl 03:00 UTC (04:00 svensk tid)
+  schedule:
+    - cron: '0 3 * * *'
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install playwright requests beautifulsoup4 markdownify
+          playwright install chromium
+          playwright install-deps chromium
+
+      - name: Run scraper
+        env:
+          EFECTE_EMAIL: ${{ secrets.EFECTE_EMAIL }}
+          EFECTE_PASSWORD: ${{ secrets.EFECTE_PASSWORD }}
+        run: |
+          python scraper_efecte.py
+
+      - name: Update index.html with new data
+        run: |
+          cp efecte.html index.html
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add documentation_efecte/ index.html efecte.html
+
+          # Räkna antal artiklar
+          ARTICLES=$(find documentation_efecte -name "*.md" | wc -l)
+          DATE=$(date +%Y-%m-%d)
+
+          # Commit endast om det finns ändringar
+          git diff --staged --quiet || git commit -m "🤖 Auto-update Efecte dokumentation ($DATE) - $ARTICLES artiklar"
+          git push
