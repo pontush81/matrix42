@@ -4,9 +4,10 @@ on:
   # Manuell triggning via GitHub UI
   workflow_dispatch:
 
-  # Schemalagd körning varje natt kl 03:00 UTC (04:00 svensk tid)
+  # Schemalagd körning varje söndag kl 03:00 UTC
+  # (04:00 svensk vintertid / 05:00 svensk sommartid)
   schedule:
-    - cron: '0 3 * * *'
+    - cron: '0 3 * * 0'
 
 jobs:
   scrape:
@@ -29,7 +30,7 @@ jobs:
 
       - name: Run scraper
         env:
-          EFECTE_EMAIL: ${{ secrets.EFECTE_EMAIL }}
+          EFECTE_EMAIL: ${{ vars.EFECTE_EMAIL }}
           EFECTE_PASSWORD: ${{ secrets.EFECTE_PASSWORD }}
         run: |
           python scraper_efecte.py
