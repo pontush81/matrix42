@@ -1,0 +1,22 @@
+[
+  {
+    "name": "sid9",
+    "value": "q7yl4njr7zwry4p4gokzvkwiuydfae2cbcv3nxif",
+    "domain": "community.efecte.com",
+    "path": "/",
+    "expires": 1774009439.954949,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "csrf",
+    "value": "gnstl0qn8bbesqioh4g138g9mn",
+    "domain": "community.efecte.com",
+    "path": "/",
+    "expires": -1,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  }
+]
