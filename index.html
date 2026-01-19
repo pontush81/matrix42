@@ -448,23 +448,11 @@
                     categoryFilter.appendChild(option);
                 });
 
-                // Load all articles
-                for (const category of categories) {
-                    try {
-                        const indexResponse = await fetch(`/documentation_efecte/${category.slug}/index.json`);
-                        const categoryIndex = await indexResponse.json();
-
-                        for (const article of categoryIndex.articles || []) {
-                            articles.push({
-                                ...article,
-                                category: category.name,
-                                categorySlug: category.slug
-                            });
-                        }
-                    } catch (e) {
-                        console.log(`Could not load ${category.slug}`);
-                    }
-                }
+                // Load all articles from combined master_index
+                articles = (masterIndex.all_articles || []).map(article => ({
+                    ...article,
+                    categorySlug: article.category_slug
+                }));
 
                 document.getElementById('totalArticles').textContent = articles.length;
                 renderArticles(articles);
@@ -626,8 +614,14 @@
                 // Rensa och formatera innehåll
                 const cleanedContent = cleanContent(rawContent);
 
+                // Konvertera markdown-bilder till HTML
+                let processedContent = cleanedContent.replace(
+                    /!\[([^\]]*)\]\(images\/([^)]+)\)/g,
+                    `<img src="/documentation_efecte/${categorySlug}/images/$2" alt="$1" style="max-width:100%; height:auto; margin:1rem 0; border-radius:8px;">`
+                );
+
                 // Konvertera till HTML med stycken
-                let html = cleanedContent
+                let html = processedContent
                     .split(/\n\n+/)
                     .filter(p => p.trim())
                     .map(p => `<p>${p.trim()}</p>`)

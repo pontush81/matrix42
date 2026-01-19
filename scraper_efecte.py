@@ -456,6 +456,7 @@ def scrape_all():
                 return False
 
             stats = {'categories': 0, 'topics': 0, 'errors': 0}
+            all_articles = []  # Samla alla artiklar för snabb laddning
 
             for category in categories:
                 logger.info(f"\n📂 Kategori: {category['name']}")
@@ -471,12 +472,20 @@ def scrape_all():
                     try:
                         article = scrape_topic(page, topic['url'], category['slug'])
                         save_article(article, category['slug'])
-                        articles.append({
+                        article_info = {
                             'title': article['title'],
                             'slug': create_slug(article['title']),
                             'url': article['url'],
                             'published': article.get('published', ''),
                             'updated': article.get('updated', '')
+                        }
+                        articles.append(article_info)
+
+                        # Lägg till i master-listan med kategori-info
+                        all_articles.append({
+                            **article_info,
+                            'category': category['name'],
+                            'category_slug': category['slug']
                         })
                         stats['topics'] += 1
                         time.sleep(DELAY_BETWEEN_REQUESTS)
@@ -487,13 +496,22 @@ def scrape_all():
                 # Spara kategori-index
                 save_index(category, articles)
 
-            # Spara master index
+            # Ta bort dubbletter baserat på URL
+            seen_urls = set()
+            unique_articles = []
+            for article in all_articles:
+                if article['url'] not in seen_urls:
+                    seen_urls.add(article['url'])
+                    unique_articles.append(article)
+
+            # Spara master index med alla artiklar
             master_index = {
                 'source': 'Efecte Community',
                 'url': BASE_URL,
                 'scraped_at': datetime.now().isoformat(),
-                'stats': stats,
-                'categories': [{'name': c['name'], 'slug': c['slug'], 'url': c['url']} for c in categories]
+                'stats': {**stats, 'unique_articles': len(unique_articles)},
+                'categories': [{'name': c['name'], 'slug': c['slug'], 'url': c['url']} for c in categories],
+                'all_articles': unique_articles
             }
 
             with open(Path(OUTPUT_DIR) / 'master_index.json', 'w', encoding='utf-8') as f:
