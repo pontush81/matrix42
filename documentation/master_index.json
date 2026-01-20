@@ -1,0 +1,85 @@
+{
+  "total_articles": 389,
+  "total_categories": 6,
+  "total_images": 2223,
+  "last_updated": "2026-01-20 03:25:25",
+  "categories": {
+    "systemgemensamt": {
+      "name": "Systemgemensamt",
+      "total": 87,
+      "subcategories": {
+        "Mobil": 15,
+        "Användare & Behörighet": 44,
+        "Register": 13,
+        "Inställningar": 10,
+        "Rapporter": 3,
+        "Integration": 2
+      }
+    },
+    "time": {
+      "name": "Time",
+      "total": 119,
+      "subcategories": {
+        "Tidrapportering": 29,
+        "Mobil & Stämpling": 20,
+        "Schema & Planering": 6,
+        "Övertid & Ersättning": 8,
+        "Inställningar": 25,
+        "Frånvaro & Semester": 18,
+        "Lön & Överföring": 6,
+        "Attestering & Granskning": 5,
+        "Saldon & Beräkning": 2
+      }
+    },
+    "employee": {
+      "name": "Employee",
+      "total": 75,
+      "subcategories": {
+        "Anställningshantering": 60,
+        "Organisation": 2,
+        "Dokument & E-signering": 3,
+        "Onboarding & Offboarding": 1,
+        "Medarbetarsamtal": 1,
+        "Integration": 2,
+        "Kompetens & Kurser": 4,
+        "Lönerevision": 2
+      }
+    },
+    "travel-expense": {
+      "name": "Travel & Expense",
+      "total": 26,
+      "subcategories": {
+        "Reseräkningar": 15,
+        "Inställningar": 4,
+        "Bilresor": 1,
+        "Utlägg & Kvitton": 4,
+        "Traktamente": 1,
+        "Attestering": 1
+      }
+    },
+    "payroll": {
+      "name": "Payroll",
+      "total": 74,
+      "subcategories": {
+        "Löneberedning": 37,
+        "Semesterhantering": 7,
+        "Inställningar": 13,
+        "Skatt & AGI": 10,
+        "Bokföring": 2,
+        "Övrigt": 1,
+        "Pension": 4
+      }
+    },
+    "plan": {
+      "name": "Plan",
+      "total": 8,
+      "subcategories": {
+        "Schemaläggning": 4,
+        "Inställningar": 2,
+        "Kalender": 2
+      }
+    }
+  },
+  "last_check": "2026-01-20 03:25:25",
+  "last_check_status": "success"
+}
