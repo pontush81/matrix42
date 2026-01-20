@@ -1,8 +1,43 @@
-# 🔒 SÄKERHETSGUIDE - Uppdateringsfunktion
+# 🔒 SÄKERHETSGUIDE
 
 ## ✅ SÄKER IMPLEMENTATION (Nuvarande)
 
-Vi använder **INTE** synliga API-nycklar i frontend! Istället har vi **3 säkerhetslager**:
+Vi använder **INTE** synliga API-nycklar i frontend! Istället har vi flera säkerhetslager.
+
+---
+
+## 🔐 Åtkomstkod för Efecte-dokumentationen
+
+Efecte-dokumentationen är skyddad med en åtkomstkod som användare måste ange för att komma åt materialet.
+
+### Sätt åtkomstkoden i Vercel:
+
+```bash
+vercel env add ACCESS_CODE production
+# Ange din valda kod
+```
+
+### Hur det fungerar:
+
+1. Användare möts av en inloggningsruta
+2. De anger åtkomstkoden
+3. Koden verifieras mot servern (POST /api/verify-code)
+4. Vid korrekt kod får de en sessionstokenen (giltig 24h)
+5. Sessionen sparas i sessionStorage
+
+### Säkerhetsegenskaper:
+
+- ✅ Koden finns **endast på servern** (miljövariabel)
+- ✅ Tidskonstant jämförelse (skydd mot timing-attacker)
+- ✅ Signerad sessionstoken med HMAC
+- ✅ Session expires efter 24 timmar
+- ✅ Sessionen rensas vid stängning av webbläsaren
+
+---
+
+## 📊 Uppdateringsfunktion
+
+Vi använder **3 säkerhetslager** för update-funktionen:
 
 ---
 

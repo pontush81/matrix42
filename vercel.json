@@ -20,6 +20,10 @@
     "api/get_token.js": {
       "maxDuration": 10,
       "memory": 256
+    },
+    "api/verify-code.js": {
+      "maxDuration": 10,
+      "memory": 256
     }
   },
   "headers": [

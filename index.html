@@ -351,6 +351,96 @@
             color: var(--text-light);
         }
 
+        /* Login overlay */
+        .login-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-overlay.hidden {
+            display: none;
+        }
+
+        .login-box {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .login-box h2 {
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .login-box p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .login-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .login-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .login-button:hover {
+            background: var(--primary-dark);
+        }
+
+        .login-button:disabled {
+            background: var(--border);
+            cursor: not-allowed;
+        }
+
+        .login-error {
+            color: #dc2626;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .app-content {
+            display: none;
+        }
+
+        .app-content.visible {
+            display: block;
+        }
+
         @media (max-width: 600px) {
             .header h1 {
                 font-size: 1.5rem;
@@ -362,6 +452,19 @@
     </style>
 </head>
 <body>
+    <!-- Login overlay -->
+    <div class="login-overlay" id="loginOverlay">
+        <div class="login-box">
+            <h2>Efecte Dokumentation</h2>
+            <p>Ange åtkomstkod för att fortsätta</p>
+            <input type="password" class="login-input" id="accessCode" placeholder="Åtkomstkod" autocomplete="off">
+            <button class="login-button" id="loginButton" onclick="verifyCode()">Logga in</button>
+            <div class="login-error" id="loginError" style="display: none;"></div>
+        </div>
+    </div>
+
+    <!-- App content (hidden until logged in) -->
+    <div class="app-content" id="appContent">
     <header class="header">
         <div class="header-content">
             <h1>Efecte Community Dokumentation</h1>
@@ -406,6 +509,7 @@
             <div class="loading">Laddar dokumentation...</div>
         </div>
     </main>
+    </div><!-- End app-content -->
 
     <div class="modal" id="articleModal">
         <div class="modal-content">
@@ -430,6 +534,88 @@
     <script>
         let articles = [];
         let categories = [];
+
+        // ===== AUTHENTICATION =====
+        function checkAuth() {
+            const token = sessionStorage.getItem('efecte_token');
+            const expires = sessionStorage.getItem('efecte_expires');
+
+            if (token && expires && Date.now() < parseInt(expires)) {
+                showApp();
+                return true;
+            }
+
+            sessionStorage.removeItem('efecte_token');
+            sessionStorage.removeItem('efecte_expires');
+            showLogin();
+            return false;
+        }
+
+        function showLogin() {
+            document.getElementById('loginOverlay').classList.remove('hidden');
+            document.getElementById('appContent').classList.remove('visible');
+            document.getElementById('accessCode').focus();
+        }
+
+        function showApp() {
+            document.getElementById('loginOverlay').classList.add('hidden');
+            document.getElementById('appContent').classList.add('visible');
+            loadData();
+        }
+
+        async function verifyCode() {
+            const code = document.getElementById('accessCode').value;
+            const button = document.getElementById('loginButton');
+            const errorDiv = document.getElementById('loginError');
+
+            if (!code) {
+                errorDiv.textContent = 'Ange en kod';
+                errorDiv.style.display = 'block';
+                return;
+            }
+
+            button.disabled = true;
+            button.textContent = 'Verifierar...';
+            errorDiv.style.display = 'none';
+
+            try {
+                const response = await fetch('/api/verify-code', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ code })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    sessionStorage.setItem('efecte_token', data.token);
+                    sessionStorage.setItem('efecte_expires', data.expires);
+                    showApp();
+                } else {
+                    errorDiv.textContent = data.message || 'Fel kod';
+                    errorDiv.style.display = 'block';
+                    document.getElementById('accessCode').value = '';
+                    document.getElementById('accessCode').focus();
+                }
+            } catch (error) {
+                errorDiv.textContent = 'Kunde inte ansluta till servern';
+                errorDiv.style.display = 'block';
+            }
+
+            button.disabled = false;
+            button.textContent = 'Logga in';
+        }
+
+        // Allow Enter key to submit
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('accessCode').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') verifyCode();
+            });
+
+            // Check if already authenticated
+            checkAuth();
+        });
+        // ===== END AUTHENTICATION =====
 
         async function loadData() {
             try {
@@ -654,8 +840,6 @@
         document.getElementById('articleModal').addEventListener('click', (e) => {
             if (e.target.id === 'articleModal') closeModal();
         });
-
-        loadData();
     </script>
 </body>
 </html>
