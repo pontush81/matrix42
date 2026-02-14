@@ -1,8 +1,8 @@
 {
-  "total_articles": 396,
+  "total_articles": 398,
   "total_categories": 6,
-  "total_images": 2281,
-  "last_updated": "2026-02-13 03:45:49",
+  "total_images": 2286,
+  "last_updated": "2026-02-14 03:34:20",
   "categories": {
     "systemgemensamt": {
       "name": "Systemgemensamt",
@@ -47,9 +47,9 @@
     },
     "travel-expense": {
       "name": "Travel & Expense",
-      "total": 26,
+      "total": 28,
       "subcategories": {
-        "Reseräkningar": 15,
+        "Reseräkningar": 17,
         "Inställningar": 4,
         "Bilresor": 1,
         "Utlägg & Kvitton": 4,
@@ -80,6 +80,6 @@
       }
     }
   },
-  "last_check": "2026-02-13 03:45:49",
+  "last_check": "2026-02-14 03:34:20",
   "last_check_status": "success"
 }
