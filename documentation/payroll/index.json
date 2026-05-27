@@ -572,12 +572,13 @@
     "tags": [
       "bokföring",
       "lön",
+      "löneart",
       "semester"
     ],
-    "date": "den 7 oktober 2025",
+    "date": "den 26 maj 2026",
     "url": "https://knowledge.flexhrm.com/sv/hur-skapar-jag-ett-bokf%C3%B6ringsunderlag-i-hrm-payroll",
     "isConfig": false,
-    "imageCount": 4,
+    "imageCount": 13,
     "hasImages": true,
     "excerpt": "I den här artikeln beskriver vi stegen för att skapa ett underlag för bokföring.\nSteg 1: Förberedelser - Skuldlistor\nInnan du kan skapa själva bokföringsfilen måste du gå till\nLön > Skuldhantering.\nDä..."
   },

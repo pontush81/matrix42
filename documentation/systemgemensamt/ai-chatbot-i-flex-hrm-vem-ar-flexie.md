@@ -1,6 +1,6 @@
 # AI-chatbot i Flex HRM - Vem är Flexie?
 
-**Datum:** den 11 maj 2026  
+**Datum:** den 26 maj 2026  
 **Kategori:** Systemgemensamt  
 **Underkategori:** Användare & Behörighet  
 **Typ:** other  

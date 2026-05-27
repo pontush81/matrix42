@@ -1,6 +1,6 @@
 # ⚙️LAS - Inställningar och beräkningsdetaljer
 
-**Datum:** den 5 december 2025  
+**Datum:** den 25 maj 2026  
 **Kategori:** Employee  
 **Underkategori:** Anställningshantering  
 **Typ:** config  
@@ -73,9 +73,10 @@ Anställningsperioder och fler anställningar
 Beräkning utförs på anställningsperioder som har kopplats på anställningar som har samma
 personnummer.
 Om flera anställningar, inom samma eller olika företag inom samma koncern, har samma personnummer så räknas de som kopplade. Här kan det förekomma överlappande perioder eller arbetade dagar.
-Eftersom perioder kan överlappa innebär det att vissa perioder/dagar kan räknas dubbelt. En unik dag
-räknas per företag/organisationsnummer
-inom koncernen. Exempelvis om en anställd arbetar på förmiddagen i ett företag och på eftermiddagen i ett annat företag i samma koncern så kommer den anställde tillgodoräkna sig två anställningsdagar. Detsamma gäller om en anställd har arbetat i samma företag  samma dag men på olika anställningsnummer.
+Eftersom perioder kan överlappa innebär det att vissa perioder/dagar kan räknas dubbelt.
+En unik dag räknas per företag/organisationsnummer
+inom koncernen. Exempelvis om en anställd arbetar på förmiddagen i ett företag och på eftermiddagen i ett annat företag i samma koncern så kommer den anställde tillgodoräkna sig två anställningsdagar.
+När en person har flera parallella anställningar upplagda på samma personnummer i samma företag ska endast en anställningsdag per kalenderdatum räknas med.
 Behörigheter
 För att aktivera någon av LAS-vyerna behöver du först aktivera den på aktuella roller:
 ![Bild](images/las-installningar-och-berakningsdetaljer_8c8a235f.png)
