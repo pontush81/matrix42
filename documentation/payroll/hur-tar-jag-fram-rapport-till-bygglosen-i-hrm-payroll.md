@@ -62,6 +62,38 @@ Vilka medarbetare inkluderas i rapporten?
 För att en medarbetare ska komma med i underlaget behöver följande två kriterier vara uppfyllda:
 Medarbetaren tillhör en personalkategori som är kopplad till ett avtalsområde.
 Medarbetaren har registrerade arbetade timmar i lönekörningen. Detta innebär att det finns en löneart som har markeringen för arbetad tid.
-Hur hämtas värden
+Hur hämtas värden till rapporten?
+Kolumn
+Var värdet kommer ifrån
+Arbetsplatsnummer
+Vid prestationslön: projektets arbetsplatsnummer via kontering på transaktion. Rader grupperas på detta värde när det är relevant.
+Avtalsområde
+Avtalsområde på personalkategorin för den senaste anställningsperioden inom datumintervallet.
+Fördelningstal
+Värde från anställningens numeriska fält som är markerat som fördelningstal.
+Lönetyp
+Tidlön eller Prestationslön utifrån inställning på projekt.
+Arbetade timmar
+Summa av antal timmar på transaktioner lönearten är markerad med Bygglösen - Arbetade timmar.
+Grundlön per timma
+Vid prestationslön: Avtalad timlön enligt anställdaregistret med hänsyn tagen till gällande fördelningstal.
+Utbetalningsnivå per timma
+Vid prestationslön: Från projektets inställning med hänsyn tagen till fördelningstal.
+Utbetalt ackordsöverskott
+Summa belopp där lönearten är markerad med Bygglösen - Avser ackordsöverskott, men bara om det finns arbetade timmar på samma arbetsplats i underlaget; annars tomt.
+Lönesumma
+Summa belopp från transaktioner där lönearten är markerad med Bygglösen - Avser utbetald lön.
+Avtalad månadslön
+Senast gällande månadslön inom datumintervall från anställdaregistret. Enbart för månadsavlönade.
+Övertidstimmar
+Summa av timmar från transaktioner där lönearten är markerad med Bygglösen - Övertidstimmar.
+Övertidstillägg
+Summa belopp från transaktioner där lönearten är markerad med Bygglösen - Övertidstillägg.
+OB-tillägg
+Summa belopp från transaktioner där lönearten är markerad med Bygglösen - OB-tillägg.
+Byggarbetsplatsens län och kommun
+Från konteringskod för län och kommun på transaktionens kontering.
+Yrkeskod
+Fältet Yrkeskod (NYK14) i anställdaregistret på senaste anställningsperioden inom datumintervall.
 Relaterade artiklar:
-Vilka inställningar behövs för att kunna rapportera Bygglösen 1.0 (Tidlön) i HRM Payroll
+Vilka inställningar behövs för att kunna rapportera Bygglösen i HRM Payroll

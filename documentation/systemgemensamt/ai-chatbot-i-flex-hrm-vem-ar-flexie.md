@@ -1,11 +1,11 @@
 # AI-chatbot i Flex HRM - Vem är Flexie?
 
-**Datum:** den 26 maj 2026  
+**Datum:** den 27 maj 2026  
 **Kategori:** Systemgemensamt  
 **Underkategori:** Användare & Behörighet  
 **Typ:** other  
 **Svårighetsgrad:** intermediate  
-**Tags:** användare, roll  
+**Tags:** användare, mobil, roll  
 **Bilder:** 5  
 **URL:** https://knowledge.flexhrm.com/sv/ai-chatbot-i-flex-hrm-vem-%C3%A4r-flexie
 
@@ -57,8 +57,8 @@ Flexie ber om din bekräftelse innan sparning.
 ![Bild](images/ai-chatbot-i-flex-hrm-vem-ar-flexie_98dd8a52.png)
 Hur fungerar röststyrning?
 Du kan kommunicera med din röst istället för att skriva till Flexie. Klicka på ikonen som föreställer en mikrofon för att börja prata.
-Funktionen stöds för närvarande i webbläsarna Google Chrome, Microsoft Edge och Safari på Mac samt i appen Flex HRM EmMa. Observera att funktionen inte fungerar i Firefox.
-Mikrofonen finns i Flex HRM i textinmatningsfönstret, i appen HRM EmMa finns den i telefonens inbyggda tangentbord, som öppnas automatiskt när du klickar i rutan för att kommunicera med Flexie.
+Funktionen stöds för närvarande i webbläsarna Google Chrome, Microsoft Edge och Safari på Mac samt i mobilappen Flex HRM. Observera att funktionen inte fungerar i Firefox.
+Mikrofonen finns i Flex HRM i textinmatningsfönstret, i Flex HRM app finns den i telefonens inbyggda tangentbord, som öppnas automatiskt när du klickar i rutan för att kommunicera med Flexie.
 ![Bild](images/ai-chatbot-i-flex-hrm-vem-ar-flexie_c5167dc7.png)
 Ser du inte Flexie i ditt Flex HRM?
 Flexie rullas ut successivt till alla kunder. Har du inte pratbubblan nu så kommer den att dyka upp i framtiden.

@@ -462,6 +462,27 @@
     "excerpt": "En omräkning av engångsskatten kan ske om en anställds beräknade årsinkomst ändras i samband med att du avräknar en lönekörning. Detta beror oftast på en automatisk omräkning av den anställdas semeste..."
   },
   {
+    "title": "Hur skapar jag ett bokföringsunderlag i HRM Payroll?",
+    "file": "hur-skapar-jag-ett-bokforingsunderlag-i-hrm-payroll.md",
+    "slug": "hur-skapar-jag-ett-bokforingsunderlag-i-hrm-payroll",
+    "category": "payroll",
+    "subcategory": "Löneberedning",
+    "type": "howto",
+    "difficulty": "intermediate",
+    "tags": [
+      "bokföring",
+      "lön",
+      "löneart",
+      "semester"
+    ],
+    "date": "den 26 maj 2026",
+    "url": "https://knowledge.flexhrm.com/sv/hur-skapar-jag-ett-bokf%C3%B6ringsunderlag-i-hrm-payroll",
+    "isConfig": false,
+    "imageCount": 13,
+    "hasImages": true,
+    "excerpt": "I den här artikeln beskriver vi stegen för att skapa ett underlag för bokföring.\nSteg 1: Förberedelser - Skuldlistor\nInnan du kan skapa själva bokföringsfilen måste du gå till\nLön > Skuldhantering.\nDä..."
+  },
+  {
     "title": "⚙️Inställningar av Bokföring och skuldhantering i HRM Payroll",
     "file": "installningar-av-bokforing-och-skuldhantering-i-hrm-payroll.md",
     "slug": "installningar-av-bokforing-och-skuldhantering-i-hrm-payroll",
@@ -560,27 +581,6 @@
     "imageCount": 4,
     "hasImages": true,
     "excerpt": "När du skapar ett bokföringsunderlag kan du få en varning i en notis om att ett konto saknas. Här guidar vi dig i hur du hittar vilken löneart det gäller och hur du åtgärdar det.\n![Bild](images/jag-fa..."
-  },
-  {
-    "title": "Hur skapar jag ett bokföringsunderlag i HRM Payroll?",
-    "file": "hur-skapar-jag-ett-bokforingsunderlag-i-hrm-payroll.md",
-    "slug": "hur-skapar-jag-ett-bokforingsunderlag-i-hrm-payroll",
-    "category": "payroll",
-    "subcategory": "Löneberedning",
-    "type": "howto",
-    "difficulty": "intermediate",
-    "tags": [
-      "bokföring",
-      "lön",
-      "löneart",
-      "semester"
-    ],
-    "date": "den 26 maj 2026",
-    "url": "https://knowledge.flexhrm.com/sv/hur-skapar-jag-ett-bokf%C3%B6ringsunderlag-i-hrm-payroll",
-    "isConfig": false,
-    "imageCount": 13,
-    "hasImages": true,
-    "excerpt": "I den här artikeln beskriver vi stegen för att skapa ett underlag för bokföring.\nSteg 1: Förberedelser - Skuldlistor\nInnan du kan skapa själva bokföringsfilen måste du gå till\nLön > Skuldhantering.\nDä..."
   },
   {
     "title": "Konteringsflöde i HRM Payroll - Hur hanteras konteringsdimensioner och prioriteringar i HRM Payroll?",
