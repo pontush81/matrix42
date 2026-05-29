@@ -951,9 +951,9 @@
     "excerpt": "Exportmallar i Flex HRM är ett kraftfullt verktyg för att enkelt exportera rådata från olika källor, som tidrapporter och anställda, till filformat som Excel eller text. Du kan också schemalägga autom..."
   },
   {
-    "title": "AI-chatbot i Flex HRM - Vem är Flexie?",
-    "file": "ai-chatbot-i-flex-hrm-vem-ar-flexie.md",
-    "slug": "ai-chatbot-i-flex-hrm-vem-ar-flexie",
+    "title": "AI-agent i Flex HRM - Vem är Flexie?",
+    "file": "ai-agent-i-flex-hrm-vem-ar-flexie.md",
+    "slug": "ai-agent-i-flex-hrm-vem-ar-flexie",
     "category": "systemgemensamt",
     "subcategory": "Användare & Behörighet",
     "type": "other",
@@ -963,12 +963,12 @@
       "mobil",
       "roll"
     ],
-    "date": "den 27 maj 2026",
+    "date": "den 28 maj 2026",
     "url": "https://knowledge.flexhrm.com/sv/ai-chatbot-i-flex-hrm-vem-%C3%A4r-flexie",
     "isConfig": false,
     "imageCount": 5,
     "hasImages": true,
-    "excerpt": "Flexie är Flex HRMs AI-chatbot som ger dig snabba svar på dina frågor och guidar dig rätt i systemet.\nU\nn\nd\nr\na\nr\nd\nu hur du registrerar ett utlägg eller var du attesterar dina medarbetares tidrapport..."
+    "excerpt": "Flexie är Flex HRMs AI-agent som ger dig snabba svar på dina frågor, guidar dig rätt i systemet och kan hjälpa dig med din rapportering.\nU\nn\nd\nr\na\nr\nd\nu hur du registrerar ett utlägg eller var du atte..."
   },
   {
     "title": "Hur fungerar Påminnelser på startsidan?",
